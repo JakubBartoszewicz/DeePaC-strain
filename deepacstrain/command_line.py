@@ -27,7 +27,7 @@ def main():
                        "sensitive": os.path.join(modulepath, "builtin", "config",
                                                  "nn-patric-strain-rapid-sensitive-cnn.ini")}
     builtin_weights = {"rapid": os.path.join(modulepath, "builtin", "weights",
-                                             "nn-patric-strain--rapid-sensitive-cnn.h5"),
+                                             "nn-patric-strain-rapid-sensitive-cnn.h5"),
                        "sensitive": os.path.join(modulepath, "builtin", "weights",
                                                  "nn-patric-strain-rapid-sensitive-cnn.h5")}
     runner = MainRunner(builtin_configs, builtin_weights)
