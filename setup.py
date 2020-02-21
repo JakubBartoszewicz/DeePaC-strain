@@ -23,7 +23,7 @@ setup(name='deepacstrain',
       author='Jakub Bartoszewicz',
       author_email='jakub.bartoszewicz@hpi.de',
       license='MIT',
-      packages=['deepacvir'],
+      packages=['deepacstrain'],
       python_requires='>=3',
       install_requires=[
           'deepac>=0.10.1',
