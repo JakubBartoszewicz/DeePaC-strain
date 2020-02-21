@@ -21,7 +21,7 @@ def main():
     rn.seed(seed)
     tf.disable_v2_behavior()
     modulepath = os.path.dirname(__file__)
-    print("DeePaC-strain {}. Using viral models.".format(__version__))
+    print("DeePaC-strain {}. Using bacterial strain models.".format(__version__))
     builtin_configs = {"rapid": os.path.join(modulepath, "builtin", "config",
                                              "nn-patric-strain-rapid-sensitive-cnn.ini"),
                        "sensitive": os.path.join(modulepath, "builtin", "config",
