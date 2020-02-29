@@ -7,7 +7,7 @@ def readme():
 
 
 setup(name='deepacstrain',
-      version='0.1.0',
+      version='0.1.1',
       description='Predicting pathogenic potentials of novel strains of known bacterial species.',
       long_description=readme(),
       long_description_content_type='text/markdown',
