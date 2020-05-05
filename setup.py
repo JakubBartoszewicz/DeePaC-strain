@@ -7,7 +7,7 @@ def readme():
 
 
 setup(name='deepacstrain',
-      version='0.1.1',
+      version='0.2.0',
       description='Predicting pathogenic potentials of novel strains of known bacterial species.',
       long_description=readme(),
       long_description_content_type='text/markdown',
@@ -26,8 +26,8 @@ setup(name='deepacstrain',
       packages=['deepacstrain'],
       python_requires='>=3',
       install_requires=[
-          'deepac>=0.10.1',
-          'tensorflow==1.15',
+          'deepac>=0.11.0',
+          'tensorflow>=2.1',
           'scikit-learn>=0.22.1',
           'numpy>=1.18.1',
       ],
