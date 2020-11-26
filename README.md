@@ -17,55 +17,55 @@ Documentation can be found here:
 
 ## Installation
 
-### Recommended: set up an environment
+### With Bioconda (recommended)
+ [![install with bioconda](https://img.shields.io/badge/install%20with-bioconda-brightgreen.svg?style=flat)](http://bioconda.github.io/recipes/deepac/README.html)
+ 
+You can install DeePaC with `bioconda`. Set up the [bioconda channel](
+<https://bioconda.github.io/user/install.html#set-up-channels>) first (channel ordering is important):
 
-We recomment setting up an isolated `conda` environment:
 ```
-conda create -n my_env python=3.6
+conda config --add channels defaults
+conda config --add channels bioconda
+conda config --add channels conda-forge
+```
+
+We recommend setting up an isolated `conda` environment:
+```
+# python 3.6, 3.7 and 3.8 are supported
+conda create -n my_env python=3.8
 conda activate my_env
 ```
 
-or, alternatively, a `virtualenv`:
+and then:
 ```
-virtualenv --system-site-packages my_env
-source my_env/bin/activate
-```
-
-
-### With conda (recommended)
- [![install with bioconda](https://img.shields.io/badge/install%20with-bioconda-brightgreen.svg?style=flat)](http://bioconda.github.io/recipes/deepacstrain/README.html)
- 
-You can install DeePaC-strain with `bioconda`. Set up the [bioconda channel](
-<https://bioconda.github.io/user/install.html#set-up-channels>) first, and then:
-```
-conda install deepacstrain
+# For GPU support (recommended)
+conda install tensorflow-gpu deepacvir
+# Basic installation (CPU-only)
+conda install deepacvir
 ```
 
-DeePaC will be installed automatically.
 
 ### With pip
 
-You can also install DeePaC-strain with `pip`:
+We recommend setting up an isolated `conda` environment (see above). Alternatively, you can use a `virtualenv` virtual environment (note that deepac requires python 3):
 ```
-pip install deepacstrain
+# use -p to use the desired python interpreter (python 3.6 or higher required)
+virtualenv -p /usr/bin/python3 my_env
+source my_env/bin/activate
 ```
-Note: TensorFlow 2.0 is not yet supported.
 
-### GPU support
+You can then install DeePaC with `pip`. For GPU support, you need to install CUDA and CuDNN manually first (see TensorFlow installation guide for details). 
+Then you can do the same as above:
+```
+# For GPU support (recommended)
+pip install tensorflow-gpu
+pip install deepacvir
+```
 
-To use GPUs, you need to install the GPU version of TensorFlow. In conda, install tensorflow-gpu from the `defaults` channel before deepac:
+Alternatively, if you don't need GPU support: 
 ```
-conda remove tensorflow
-conda install -c defaults tensorflow-gpu=1.15 
-conda install deepacstrain
-```
-DeePaC will be installed automatically. Note: TensorFlow 2.0 is not yet supported.
-
-If you're using `pip`, you need to install CUDA and CuDNN first (see TensorFlow installation guide for details). Then
-you can do the same as above:
-```
-pip uninstall tensorflow
-pip install tensorflow-gpu==1.15
+# Basic installation (CPU-only)
+pip install deepacvir
 ```
 
 ## Usage
@@ -79,14 +79,16 @@ deepac-strain --help
 
 # Run quick tests (eg. on CPUs)
 deepac-strain test -q
-# Full tests on a GPU
-deepac-strain test -a -g 1
+# Full tests
+deepac-strain test -a
 
-# Predict using a rapid CNN (trained on VHDB data) using a GPU
-deepac-strain predict -r -g 1 input.fasta
-# Predict using a sensitive LSTM (trained on VHDB data) using a GPU
-deepac-strain predict -s -g 1 input.fasta
+# Predict using a rapid CNN (trained on VHDB data)
+deepac-strain predict -r input.fasta
+# Predict using a sensitive LSTM (trained on VHDB data)
+deepac-strain predict -s input.fasta
 ```
+
+More examples are available at <https://gitlab.com/rki_bioinformatics/DeePaC>.
 
 ## Supplementary data and scripts
 In the main DeePaC repository (<https://gitlab.com/rki_bioinformatics/DeePaC>) you can find the R scripts and data files used in the papers for dataset preprocessing and benchmarking.
