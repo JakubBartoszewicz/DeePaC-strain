@@ -60,23 +60,23 @@ for details. The guide below assumes you have Docker 19.03 or above.
 You can then pull the desired image:
 ```
 # Basic installation - CPU only
-docker pull jbartoszewicz/deepac:0.13.3
+docker pull jbartoszewicz/deepac:0.13.5
 
 # For GPU support
-docker pull jbartoszewicz/deepac:0.13.3-gpu
+docker pull jbartoszewicz/deepac:0.13.5-gpu
 ```
 
 And run it:
 ```
 # Basic installation - CPU only
-docker run -v $(pwd):/deepac -u $(id -u):$(id -g) --rm jbartoszewicz/deepac:0.13.3 deepac-strain --help
-docker run -v $(pwd):/deepac -u $(id -u):$(id -g) --rm jbartoszewicz/deepac:0.13.3 deepac-strain test -q
+docker run -v $(pwd):/deepac -u $(id -u):$(id -g) --rm jbartoszewicz/deepac:0.13.5 deepac-strain --help
+docker run -v $(pwd):/deepac -u $(id -u):$(id -g) --rm jbartoszewicz/deepac:0.13.5 deepac-strain test -q
 
 # With GPU support
-docker run -v $(pwd):/deepac -u $(id -u):$(id -g) --rm --gpus all jbartoszewicz/deepac:0.13.3-gpu deepac-strain test
+docker run -v $(pwd):/deepac -u $(id -u):$(id -g) --rm --gpus all jbartoszewicz/deepac:0.13.5-gpu deepac-strain test
 
 # If you want to use the shell inside the container
-docker run -it -v $(pwd):/deepac -u $(id -u):$(id -g) --rm --gpus all jbartoszewicz/deepac:0.13.3-gpu bash
+docker run -it -v $(pwd):/deepac -u $(id -u):$(id -g) --rm --gpus all jbartoszewicz/deepac:0.13.5-gpu bash
 ```
 
 The image ships the main `deepac` package along with the `deepac-vir` and `deepac-strain` plugins. See the basic usage guide below for more deepac commands.
